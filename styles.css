@@ -21,6 +21,16 @@ h1, h2, h3, h4, strong, b {
     font-weight: 600;
 }
 
+/* Center and scale the main name */
+.main-name {
+    text-align: center;
+    font-size: 3.5rem; /* Makes the name significantly larger */
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: var(--purdue-gold);
+    border-bottom: none; /* Removes the underline if it exists */
+}
+
 a {
     color: var(--purdue-gold);
     text-decoration: none;
