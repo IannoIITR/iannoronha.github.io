@@ -51,17 +51,18 @@ a:hover {
 
 /* Sticky Left Sidebar */
 .sidebar {
-    position: sticky; /* Changed from fixed to sticky */
+    position: sticky;
     top: 0;
     width: 320px;
     height: 100vh;
-    padding: 3rem 2rem;
+    /* Increase the top padding to push items down */
+    padding: 6rem 2rem 2rem 2rem; 
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    flex-shrink: 0; /* Prevents sidebar from shrinking */
+    flex-shrink: 0;
 }
 
 .profile-img {
