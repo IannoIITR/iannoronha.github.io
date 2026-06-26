@@ -1,52 +1,44 @@
-/* Purdue Theme Colors */
+/* Variables for Purdue Theme */
 :root {
-    --purdue-black: #000000;
-    --purdue-gold: #CFB991; 
-    --text-white: #FFFFFF;
-    --bg-gray: #111111; 
-    --border-gray: #333333;
+    --bg-black: #000000;
+    --text-white: #e0e0e0;
+    --purdue-gold: #CFB991;
+    --muted-gray: #888888;
 }
 
-/* Base Body Styling */
 body {
-    background-color: var(--purdue-black);
+    background-color: var(--bg-black);
     color: var(--text-white);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    font-size: 16px;
 }
 
-/* Typography Colors */
-h1, h2, h3, h4, strong, b, a {
+h1, h2, h3, h4, strong, b {
     color: var(--purdue-gold);
+    font-weight: 600;
 }
 
 a {
+    color: var(--purdue-gold);
     text-decoration: none;
-    transition: opacity 0.3s;
+    transition: color 0.2s ease-in-out;
 }
 
 a:hover {
-    opacity: 0.7;
+    color: #ffffff;
 }
 
-/* Container Layout (The Core Layout Change) */
-.container {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    min-height: 100vh;
-}
-
-/* Left Sidebar */
+/* Fixed Left Sidebar */
 .sidebar {
-    width: 300px;
-    flex-shrink: 0;
-    padding: 3rem 2rem;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 320px;
     height: 100vh;
+    padding: 3rem 2rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -54,70 +46,63 @@ a:hover {
     text-align: center;
 }
 
-.profile-img-container {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 1.5rem;
-    border: 3px solid var(--purdue-gold);
-}
-
 .profile-img {
-    width: 100%;
-    height: 100%;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
     object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--purdue-gold);
 }
 
 .sidebar h1 {
-    font-size: 2rem;
-    margin: 0 0 0.5rem 0;
+    font-size: 1.8rem;
+    margin: 0 0 0.2rem 0;
 }
 
 .sidebar h2 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text-white);
     font-weight: 400;
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.5rem 0;
 }
 
 .sidebar p {
     font-size: 0.9rem;
-    margin-bottom: 2rem;
+    color: var(--muted-gray);
+    margin: 0 0 1.5rem 0;
 }
 
-.contact-links {
+.contact-info {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.social-links {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.contact-links a {
+.social-links a {
+    font-size: 0.9rem;
+    color: var(--text-white);
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border: 1px solid var(--purdue-gold);
-    padding: 0.7rem;
-    border-radius: 5px;
+    gap: 6px;
+}
+
+.social-links a:hover {
     color: var(--purdue-gold);
-    font-weight: bold;
 }
 
-.contact-links a:hover {
-    background-color: var(--purdue-gold);
-    color: var(--purdue-black);
-    opacity: 1;
-}
-
-/* Right Main Content */
+/* Right Scrolling Content */
 .content {
-    flex-grow: 1;
-    padding: 3rem 4rem;
+    margin-left: 320px; /* Must match sidebar width */
+    max-width: 800px;
+    padding: 4rem 3rem;
     box-sizing: border-box;
-    border-left: 1px solid var(--border-gray);
-    background-color: var(--bg-gray);
 }
 
 section {
@@ -125,81 +110,117 @@ section {
 }
 
 section h2 {
-    font-size: 1.8rem;
-    border-bottom: 2px solid var(--border-gray);
+    font-size: 1.5rem;
+    border-bottom: 1px solid #333;
     padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-section h3 {
-    font-size: 1.3rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-
-/* Timeline/Experience Styling */
-.timeline-item {
-    margin-bottom: 2rem;
-}
-
-.timeline-item h3 {
-    margin: 0 0 0.2rem 0;
+.subsection-title {
+    margin-top: 2.5rem;
     font-size: 1.2rem;
 }
 
-.timeline-date {
-    font-size: 0.9rem;
-    color: #aaaaaa;
-    margin: 0 0 0.5rem 0;
-    font-style: italic;
+/* Experience Styling */
+.exp-item {
+    margin-bottom: 2rem;
 }
 
-/* Publication Styling */
-.pub-item {
+.exp-header {
     display: flex;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background-color: var(--purdue-black);
-    border: 1px solid var(--border-gray);
-    border-radius: 5px;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
 }
 
-.pub-info p {
-    margin: 0 0 0.3rem 0;
+.exp-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.exp-date {
+    font-size: 0.9rem;
+    color: var(--muted-gray);
+}
+
+.exp-item p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Publication Styling - Mimicking Lerrel/Ekdeep Layout */
+.pub-item {
+    margin-bottom: 1.5rem;
 }
 
 .pub-title {
     font-weight: bold;
-    font-size: 1.1rem;
     color: var(--purdue-gold);
+    font-size: 1.05rem;
+    margin-bottom: 0.2rem;
 }
 
 .pub-authors {
     font-size: 0.95rem;
+    margin-bottom: 0.1rem;
 }
 
 .pub-venue {
     font-size: 0.9rem;
     font-style: italic;
-    color: #cccccc;
+    color: var(--muted-gray);
+    margin-bottom: 0.3rem;
+}
+
+.pub-links {
+    font-size: 0.85rem;
+    font-family: monospace;
+}
+
+.pub-links a {
+    margin-right: 10px;
+    color: var(--text-white);
+}
+
+.pub-links a:hover {
+    color: var(--purdue-gold);
+}
+
+.asterisk {
+    font-size: 0.85rem;
+    color: var(--muted-gray);
+}
+
+/* Clean List for Patents */
+.clean-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+.clean-list li {
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
 }
 
 /* Mobile Responsiveness */
-@media (max-width: 900px) {
-    .container {
-        flex-direction: column;
-    }
-    
+@media (max-width: 850px) {
     .sidebar {
+        position: relative;
         width: 100%;
         height: auto;
-        position: relative;
-        border-right: none;
-        border-bottom: 1px solid var(--border-gray);
+        padding: 3rem 1rem 1rem 1rem;
+        border-bottom: 1px solid #333;
     }
     
     .content {
-        padding: 2rem;
-        border-left: none;
+        margin-left: 0;
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+    }
+    
+    .exp-header {
+        flex-direction: column;
     }
 }
