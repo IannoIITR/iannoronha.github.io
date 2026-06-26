@@ -98,6 +98,9 @@ a:hover {
 }
 
 /* Right Scrolling Content */
+#about p {
+    text-align: justify;
+}
 .content {
     margin-left: 320px; /* Must match sidebar width */
     max-width: 800px;
