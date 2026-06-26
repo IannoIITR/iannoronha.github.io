@@ -31,11 +31,18 @@ a:hover {
     color: #ffffff;
 }
 
-/* Fixed Left Sidebar */
+/* Center the Entire Page Layout */
+.page-wrapper {
+    display: flex;
+    max-width: 1120px; /* 320px for sidebar + 800px for content */
+    margin: 0 auto; /* This is the magic rule that centers everything on large screens */
+    position: relative;
+}
+
+/* Sticky Left Sidebar */
 .sidebar {
-    position: fixed;
+    position: sticky; /* Changed from fixed to sticky */
     top: 0;
-    left: 0;
     width: 320px;
     height: 100vh;
     padding: 3rem 2rem;
@@ -44,6 +51,7 @@ a:hover {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    flex-shrink: 0; /* Prevents sidebar from shrinking */
 }
 
 .profile-img {
@@ -102,7 +110,7 @@ a:hover {
     text-align: justify;
 }
 .content {
-    margin-left: 320px; /* Must match sidebar width */
+    flex-grow: 1;
     max-width: 800px;
     padding: 4rem 3rem;
     box-sizing: border-box;
@@ -209,6 +217,10 @@ section h2 {
 
 /* Mobile Responsiveness */
 @media (max-width: 850px) {
+    .page-wrapper {
+        flex-direction: column;
+    }
+    
     .sidebar {
         position: relative;
         width: 100%;
@@ -218,7 +230,6 @@ section h2 {
     }
     
     .content {
-        margin-left: 0;
         padding: 2rem 1.5rem;
         max-width: 100%;
     }
